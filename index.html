@@ -66,19 +66,19 @@
       //we need to calculate how many days there are in the current month
       //so we can create an appropriate number of cells
 
-      const daysInThisMonth = function () {
-        let now = new Date(); //new Date() is THIS MOMENT in time
-        let lastDateOfMonth = new Date(
-          now.getFullYear(),
-          now.getMonth() + 1,
-          0
-        );
-        let numberOfDays = lastDateOfMonth.getDate();
-        return numberOfDays; //this function returns the number of the current days
-      };
+      // const daysInThisMonth = function () {
+      //   let now = new Date(); //new Date() is THIS MOMENT in time
+      //   let lastDateOfMonth = new Date(
+      //     now.getFullYear(),
+      //     now.getMonth() + 1,
+      //     0
+      //   );
+      //   let numberOfDays = lastDateOfMonth.getDate();
+      //   return numberOfDays; //this function returns the number of the current days
+      // };
 
       window.onload = function () {
-        let numberOfDays = daysInThisMonth(); //this number of days has a value of the number of days in the current month
+        let numberOfDays = 75; //this number of days has a value of the number of days in the current month
 
         let calendar = document.getElementById("calendar");
 
