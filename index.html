@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Calendar</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <style></style>
+  </head>
+
+  <body>
+    <h1>Calendar</h1>
+
+    <div id="calendar">
+      <!-- day cells will be inserted here -->
+    </div>
+
+    <h1>Add Meeting</h1>
+
+    <!-- add event form sections -->
+
+    <div id="addMeeting">
+      <div>
+        <h4>Meeting Day</h4>
+
+        <h4 id="meeting-day">Click on a Day</h4>
+      </div>
+
+      <div>
+        <h4>Meeting Time</h4>
+
+        <input type="time" id="meeting-time" />
+      </div>
+
+      <div>
+        <h4>Meeting Name</h4>
+
+        <input
+          type="text"
+          id="meeting-name"
+          placeholder="Insert a name for the meeting"
+        />
+      </div>
+
+      <div>
+        <h4>Add</h4>
+
+        <button onclick="saveMeeting()">Save Meeting</button>
+      </div>
+    </div>
+
+    <div id="appointments">
+      <h1>Appointments for the day!</h1>
+
+      <ul id="appointment-list"></ul>
+    </div>
+    <script>
+      //we need to calculate how many days there are in the current month
+      //so we can create an appropriate number of cells
+
+      const daysInThisMonth = function () {
+        let now = new Date(); //new Date() is THIS MOMENT in time
+        let lastDateOfMonth = new Date(
+          now.getFullYear(),
+          now.getMonth() + 1,
+          0
+        );
+        let numberOfDays = lastDateOfMonth.getDate();
+        return numberOfDays; //this function returns the number of the current days
+      };
+
+      window.onload = function () {
+        let numberOfDays = daysInThisMonth(); //this number of days has a value of the number of days in the current month
+
+        let calendar = document.getElementById("calendar");
+
+        for (let i = 0; i < numberOfDays; i++) {
+          //lets create 30 divs, 30 cells fot the month April, a cell is an empty DIV
+          let cell = document.createElement("div"); //creating on new div every time
+          cell.classList.add("day"); //adding a list called day
+
+          let day = document.createElement("h3"); //heading with the number into the cell
+          day.innerText = i + 1; //the day to be added is i + 1 because it starts by 0
+
+          calendar.appendChild(cell); //insert the day <h3> into the cell
+
+          calendar.appendChild(cell); //adding the cell (with the number of the day) inside the calendar on the page
+        }
+      };
+    </script>
+  </body>
+</html>
